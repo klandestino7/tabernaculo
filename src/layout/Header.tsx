@@ -49,7 +49,7 @@ export default function WithSubnavigation() {
                         ratio={16 / 4}
                         height="470px"
                     >
-                        <video width="100%" height="470" autoPlay loop={true} muted={true}>
+                        <video width="100%" height="470" autoPlay playsInline loop={true} muted={true} >
                             <source src="https://cdn.subsplash.com/videos/2CD49G/_source/77fb07bd-5f8b-40b0-b26d-efc9cf818ddb/video.mp4" type="video/mp4" />
                         </video>
                     </AspectRatio>
