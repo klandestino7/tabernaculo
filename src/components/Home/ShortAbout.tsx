@@ -18,11 +18,11 @@ export default function ShortAbout(props: ButtonProps) {
                 alignItems="center"
             >
                 <Box>
-                    <Heading as='h2' size='xl' align="center">
+                    <Heading as='h2' size='xl' textAlign="center">
                         "Não por força, nem pela violência, mas pelo Espírito Santo."
                     </Heading>
 
-                    <Heading as='h4' size='md' align="center">
+                    <Heading as='h4' size='md' textAlign="center">
                         ZACARIAS 4:6
                     </Heading>
                 </Box>
