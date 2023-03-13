@@ -4,6 +4,9 @@ import Image from 'next/image'
 import Reuniao from '@/components/Home/Reuniao'
 import ShortAbout from '@/components/Home/ShortAbout'
 
+
+
+
 export default function Home() {
     return (
         <>

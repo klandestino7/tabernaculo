@@ -15,7 +15,8 @@ import {
     useBreakpointValue,
     useDisclosure,
     AspectRatio,
-    Image
+    Image,
+    Heading
 } from '@chakra-ui/react';
 import {
     HamburgerIcon,
@@ -25,9 +26,35 @@ import {
 } from '@chakra-ui/icons';
 import SocialButton from '../components/SocialButton';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+
+
+const imageFromRouter : any =
+{
+    "/conectar": { title: "Conectar", sub: "Para ficar por dentro de todas as informações sobre os nossos encontros clique em QUERO PARTICIPAR e entre para o grupo privado de WhatsApp de interesse.", image : "./images/banner/conectar.jpg"},
+    "/sobre": { title: "Sobre nós", sub:"", image : "./images/banner/sobre.jpg"},
+    "/contribuir": { title: "Contribuir", sub:"", image : "./images/banner/contribuir.jpg"}
+}
+
 
 export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
+    const Router  = useRouter();
+
+    const [ title, setTitle ] = useState("Tabernáculo");
+    const [ subTitle, setSubTitle ] = useState("");
+    const [ banner, setBanner ] = useState("./images/banner/conectar.jpg"); 
+
+    useEffect(() =>
+    {
+        if (imageFromRouter[Router.asPath])
+        {
+            setTitle(imageFromRouter[Router.asPath].title);
+            setBanner(imageFromRouter[Router.asPath].image);
+            setSubTitle(imageFromRouter[Router.asPath].sub);
+        }
+    }, [Router.asPath]);
 
     return (
         <>
@@ -49,13 +76,21 @@ export default function WithSubnavigation() {
                         ratio={16 / 4}
                         height="470px"
                     >
-                        <video width="100%" height="470" autoPlay playsInline loop={true} muted={true} >
-                            <source src="https://cdn.subsplash.com/videos/2CD49G/_source/77fb07bd-5f8b-40b0-b26d-efc9cf818ddb/video.mp4" type="video/mp4" />
-                        </video>
+                        { Router.asPath == "/" ? 
+                            <video width="100%" height="470" autoPlay playsInline loop={true} muted={true} >
+                                <source src="https://cdn.subsplash.com/videos/2CD49G/_source/77fb07bd-5f8b-40b0-b26d-efc9cf818ddb/video.mp4" type="video/mp4" />
+                            </video>
+                        :
+                            <Image
+                                src={banner}
+                                width="100%"
+                                height="470px"
+                            />
+                        }
+                        
                     </AspectRatio>
                 </Box>
 
-                
                 <Flex
                     bg={"transparent"}
                     color={useColorModeValue('whiteAlpha.900', 'white')}
@@ -90,33 +125,45 @@ export default function WithSubnavigation() {
                         <DesktopNav />
                     </Flex>
 
-                    
-                    <AspectRatio 
-                        minWidth="330px"
-                        ratio={16 / 4.5}
-                    >
-                        <Image
-                            src="./images/logo.png"
-                        />
-                    </AspectRatio>
+                    { Router.asPath == "/" 
+                        ?
+                            <>
+                                <AspectRatio 
+                                    minWidth="330px"
+                                    ratio={16 / 4.5}
+                                >
+                                    <Image
+                                        src="./images/logo.png"
+                                    />
+                                </AspectRatio>
 
-                    <Flex justify={{ base: 'center', md: 'start' }}
-                        direction="column"
-                        align="center"
-                    >
-                        <Stack direction={'row'} spacing={6} h="80px">
-                            <SocialButton label={'Instagram'} href={'https://www.instagram.com/tabernaculobc/'}>
-                                <FaInstagram />
-                            </SocialButton>
-                            <SocialButton label={'Twitter'} href={'https://twitter.com/TabernaculoG12'}>
-                                <FaTwitter />
-                            </SocialButton>
-                            <SocialButton label={'YouTube'} href={'https://www.youtube.com/@tabernaculodasnacoes6474'}>
-                                <FaYoutube />
-                            </SocialButton>
-                        </Stack>
-                    </Flex>
-
+                                <Flex justify={{ base: 'center', md: 'start' }}
+                                    direction="column"
+                                    align="center"
+                                >
+                                    <Stack direction={'row'} spacing={6} h="80px">
+                                        <SocialButton label={'Instagram'} href={'https://www.instagram.com/tabernaculobc/'}>
+                                            <FaInstagram />
+                                        </SocialButton>
+                                        <SocialButton label={'Twitter'} href={'https://twitter.com/TabernaculoG12'}>
+                                            <FaTwitter />
+                                        </SocialButton>
+                                        <SocialButton label={'YouTube'} href={'https://www.youtube.com/@tabernaculodasnacoes6474'}>
+                                            <FaYoutube />
+                                        </SocialButton>
+                                    </Stack>
+                                </Flex>
+                            </>
+                        :
+                        <>
+                            <Heading as='h2' size='2xl'>
+                                {title}
+                            </Heading>
+                            <Text mb="50px" fontSize="20px" maxW="800px">
+                                {subTitle}
+                            </Text>
+                        </>
+                    }
                 </Flex>
             </Box>
         </>
@@ -285,29 +332,30 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
     {
         label: 'Início',
-        href: '#',
+        href: '/',
     },
     {
         label: 'Sobre nós',
-        href: '#',
+        href: '/sobre',
     },
     {
         label: 'Conectar',
-        children: [
-            {
-                label: 'Explore Design Work',
-                subLabel: 'Trending Design to inspire you',
-                href: '#',
-            },
-            {
-                label: 'New & Noteworthy',
-                subLabel: 'Up-and-coming Designers',
-                href: '#',
-            },
-        ],
+        href: "/conectar"
+        // children: [
+        //     {
+        //         label: 'Explore Design Work',
+        //         subLabel: 'Trending Design to inspire you',
+        //         href: '#',
+        //     },
+        //     {
+        //         label: 'New & Noteworthy',
+        //         subLabel: 'Up-and-coming Designers',
+        //         href: '#',
+        //     },
+        // ],
     },
     {
         label: 'Contribuir',
-        href: '#',
+        href: '/contribuir',
     }
 ];
