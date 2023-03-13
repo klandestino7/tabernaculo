@@ -216,6 +216,7 @@ const MobileNav = () => {
             position="absolute"
             top="60px"
             w="100%"
+            zIndex="999"
         >
             {NAV_ITEMS.map((navItem) => (
                 <MobileNavItem key={navItem.label} {...navItem} />
