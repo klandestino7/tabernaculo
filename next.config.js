@@ -18,5 +18,5 @@ module.exports = withPWA({
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-  images: { domains: ['localhost', 'localhost:1337', '127.0.0.1', '127.0.0.1:1337', 'onve-api.onrender.com', 'citmap-storage.nyc3.digitaloceanspaces.com', 'digitaloceanspaces.com'] },
+  images: { domains: ['localhost', 'localhost:1337', '127.0.0.1', '127.0.0.1:1337', 'onve-api.onrender.com', 'onve.com.br', 'citmap-storage.nyc3.digitaloceanspaces.com', 'digitaloceanspaces.com'] },
 });
