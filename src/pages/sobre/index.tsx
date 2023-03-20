@@ -10,12 +10,12 @@ import {
 } from "@chakra-ui/react";
 import MessageBanner from '@/components/Contribuir/MessageBanner';
 import BanksAccount from '@/components/Contribuir/BanksAccount';
+import About from '@/components/SobreNos/About';
 
 export default function Sobre() {
     return (
         <main>
-
-
+            <About />
         </main> 
     )
 }

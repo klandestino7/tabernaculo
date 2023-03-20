@@ -1,4 +1,5 @@
 import { Button, ButtonProps, Flex, useColorModeValue, Heading, Text, Box } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 function randomColor() {
@@ -14,7 +15,12 @@ const colorList: string[] = [
 ];
 
 export default function Reuniao(props: ButtonProps) {
+    const router = useRouter();
     const [colorCode, setColorCode] = useState(colorList[randomColor()]);
+
+    const moveToConnectPage = () => {
+        router.push("/conectar");
+    }
 
     return (
         <Flex
@@ -54,13 +60,13 @@ export default function Reuniao(props: ButtonProps) {
                         transform: 'translateY(-2px)',
                         boxShadow: 'lg',
                     }}
-                    onClick={() => setColorCode(colorList[randomColor()])}>
-                    Quero me inscrever
+                    onClick={() => moveToConnectPage()}>
+                    Quero me conectar
                 </Button>
 
 
                 <Text>
-                    Entrada livre e gratuita. Clique para se inscrever!
+                    Entrada livre e gratuita.
                 </Text>
             </Box>
             
