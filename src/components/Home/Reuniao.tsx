@@ -1,4 +1,4 @@
-import { Button, ButtonProps, Flex, useColorModeValue, Heading, Text, Box } from '@chakra-ui/react';
+import { Button, ButtonProps, Flex, useColorModeValue, Heading, Text, Box, Link } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -49,21 +49,24 @@ export default function Reuniao(props: ButtonProps) {
                         Domingo às 20h - Hotel Geranium, Av. Brasil, 2970 - Balneário Camboriú
                     </Heading>
                 </Box>
-
-                <Button
-                    {...props}
-                    px={8}
-                    color={'white'}
-                    variant='outline'
-                    rounded={'md'}
-                    _hover={{
-                        transform: 'translateY(-2px)',
-                        boxShadow: 'lg',
-                    }}
-                    onClick={() => moveToConnectPage()}>
-                    Quero me conectar
-                </Button>
-
+                <Link
+                    href={"https://chat.whatsapp.com/CEWokY2sSrs02gRjA0ShGG"}
+                    target="_blank"
+                >
+                    <Button
+                        {...props}
+                        px={8}
+                        color={'white'}
+                        variant='outline'
+                        rounded={'md'}
+                        _hover={{
+                            transform: 'translateY(-2px)',
+                            boxShadow: 'lg',
+                        }}
+                        >
+                        Quero me conectar
+                    </Button>
+                </Link>
 
                 <Text>
                     Entrada livre e gratuita.

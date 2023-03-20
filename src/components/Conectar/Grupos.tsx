@@ -41,7 +41,7 @@ export default function Grupos()
                         Todos são bem-vindos!
                     </Text>
                     <Link
-                        href={"https://chat.whatsapp.com/L5xYvYwldCTIn592ppm10C"}
+                        href={"https://chat.whatsapp.com/CEWokY2sSrs02gRjA0ShGG"}
                         target="_blank"
                     >
                         <Button
