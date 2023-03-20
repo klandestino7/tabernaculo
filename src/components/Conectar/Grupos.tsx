@@ -8,10 +8,11 @@ import {
     Container,
     Button
 } from "@chakra-ui/react";
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 export default function Grupos()
 {
-    
     return (
         <Container 
             background="URL(./images/white-pattern.jpg) 50% + 50% no-repeat"
@@ -39,22 +40,25 @@ export default function Grupos()
                         Nesse dia você terá a oportunidade de experimentar a cultura e o DNA da nossa casa, compreender nossa visão e ouvir uma mensagem transformadora.
                         Todos são bem-vindos!
                     </Text>
-
-                    <Button
-                        m="40px 0"
-                        px={8}
-                        color={'blackAlpha.800'}
-                        colorScheme="black"
-                        variant='outline'
-                        rounded={'md'}
-                        _hover={{
-                            transform: 'translateY(-2px)',
-                            boxShadow: 'lg',
-                        }}
+                    <Link
+                        href={"https://chat.whatsapp.com/L5xYvYwldCTIn592ppm10C"}
+                        target="_blank"
                     >
-                        Quero participar
-                    </Button>
-
+                        <Button
+                            m="40px 0"
+                            px={8}
+                            color={'blackAlpha.800'}
+                            colorScheme="black"
+                            variant='outline'
+                            rounded={'md'}
+                            _hover={{
+                                transform: 'translateY(-2px)',
+                                boxShadow: 'lg',
+                            }}
+                        >
+                            Quero participar
+                        </Button>
+                    </Link>
                 </Box>
             </Container>
         </Container>
