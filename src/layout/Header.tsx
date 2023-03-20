@@ -77,7 +77,7 @@ export default function WithSubnavigation() {
                         height="470px"
                     >
                         { Router.asPath == "/" ? 
-                            <video width="100%" height="470" autoPlay playsInline loop={true} muted={true} >
+                            <video width="100%" height="470" autoPlay playsInline loop={true} muted={true} poster="./images/banner/conectar.jpg" >
                                 <source src="https://citmap-storage.nyc3.digitaloceanspaces.com/background.mp4" type="video/mp4" />
                             </video>
                         :
