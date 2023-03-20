@@ -14,11 +14,7 @@ import Grupos from '@/components/Conectar/Grupos';
 export default function Conectar() {
     return (
         <main>
-
             <Grupos />
-
-            <BanksAccount />
-
         </main> 
     )
 }
