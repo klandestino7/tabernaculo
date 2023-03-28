@@ -24,7 +24,7 @@ export default function MessageBanner()
                     <Box maxW="400px">
                         <Heading as='h1' size='4xl'>
                             Adoração através
-                            de dízimos e ofertas.
+                            de ofertas.
                         </Heading>
                     </Box>
                     <Box>
