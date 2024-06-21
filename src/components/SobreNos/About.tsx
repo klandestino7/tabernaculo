@@ -16,6 +16,7 @@ export default function About()
             background="URL(./images/white-pattern.jpg) 50% + 50% no-repeat"
             backgroundSize="cover"
             backgroundPosition="center"
+            color="#0C0C0C"
             w="full"
             maxW="full"
         >

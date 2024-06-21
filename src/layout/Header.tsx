@@ -30,26 +30,24 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 
-const imageFromRouter : any =
+const imageFromRouter: any =
 {
-    "/conectar": { title: "Conectar", sub: "Para ficar por dentro de todas as informações sobre os nossos encontros clique em QUERO PARTICIPAR e entre para o grupo privado de WhatsApp de interesse.", image : "./images/banner/conectar.jpg"},
-    "/sobre": { title: "Sobre nós", sub:"", image : "./images/banner/sobre.jpg"},
-    "/contribuir": { title: "Contribuir", sub:"", image : "./images/banner/contribuir.jpg"}
+    "/conectar": { title: "Conectar", sub: "Para ficar por dentro de todas as informações sobre os nossos encontros clique em QUERO PARTICIPAR e entre para o grupo privado de WhatsApp de interesse.", image: "./images/banner/conectar.jpg" },
+    "/sobre": { title: "Sobre nós", sub: "", image: "./images/banner/sobre.jpg" },
+    "/contribuir": { title: "Contribuir", sub: "", image: "./images/banner/contribuir.jpg" }
 }
 
 
 export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
-    const Router  = useRouter();
+    const Router = useRouter();
 
-    const [ title, setTitle ] = useState("Tabernáculo");
-    const [ subTitle, setSubTitle ] = useState("");
-    const [ banner, setBanner ] = useState("./images/banner/conectar.jpg"); 
+    const [title, setTitle] = useState("Tabernáculo");
+    const [subTitle, setSubTitle] = useState("");
+    const [banner, setBanner] = useState("./images/banner/conectar.jpg");
 
-    useEffect(() =>
-    {
-        if (imageFromRouter[Router.asPath])
-        {
+    useEffect(() => {
+        if (imageFromRouter[Router.asPath]) {
             setTitle(imageFromRouter[Router.asPath].title);
             setBanner(imageFromRouter[Router.asPath].image);
             setSubTitle(imageFromRouter[Router.asPath].sub);
@@ -58,8 +56,8 @@ export default function WithSubnavigation() {
 
     return (
         <>
-            <Collapse 
-                in={isOpen} 
+            <Collapse
+                in={isOpen}
                 animateOpacity
             >
                 <MobileNav />
@@ -72,22 +70,36 @@ export default function WithSubnavigation() {
                     top="0"
                     zIndex="-2"
                 >
-                    <AspectRatio 
+                    <AspectRatio
                         ratio={16 / 4}
                         height="470px"
                     >
-                        { Router.asPath == "/" ? 
-                            <video width="100%" height="470" autoPlay playsInline loop={true} muted={true} poster="./images/banner/conectar.jpg" >
-                                <source src="https://onve.com.br/background.mp4" type="video/mp4" />
-                            </video>
-                        :
-                            <Image
-                                src={banner}
-                                width="100%"
-                                height="470px"
-                            />
+                        {Router.asPath == "/" ?
+                            <>
+                                <video width="100%" height="470" autoPlay playsInline loop={true} muted={true} poster="./images/banner/conectar.jpg" >
+                                    <source src="https://onve.com.br/background.mp4" type="video/mp4" />
+                                </video>
+                                <Box
+                                    bg={"rgba(0,0,0,0.5)"}
+                                >
+
+                                </Box>
+                            </>
+                            :
+                            <>
+                                <Image
+                                    src={banner}
+                                    width="100%"
+                                    height="470px"
+                                />
+                                <Box
+                                    bg={"rgba(0,0,0,0.5)"}
+                                >
+
+                                </Box>
+                            </>
                         }
-                        
+
                     </AspectRatio>
                 </Box>
 
@@ -120,40 +132,40 @@ export default function WithSubnavigation() {
                             aria-label={'Toggle Navigation'}
                         />
                     </Flex>
-                    
+
                     <Flex display={{ base: 'none', md: 'flex' }} p="20px">
                         <DesktopNav />
                     </Flex>
 
-                    { Router.asPath == "/" 
+                    {Router.asPath == "/"
                         ?
-                            <>
-                                <AspectRatio 
-                                    minWidth="330px"
-                                    ratio={16 / 4.5}
-                                >
-                                    <Image
-                                        src="./images/logo.png"
-                                    />
-                                </AspectRatio>
+                        <>
+                            <AspectRatio
+                                minWidth="330px"
+                                ratio={16 / 4.5}
+                            >
+                                <Image
+                                    src="./images/logo.png"
+                                />
+                            </AspectRatio>
 
-                                <Flex justify={{ base: 'center', md: 'start' }}
-                                    direction="column"
-                                    align="center"
-                                >
-                                    <Stack direction={'row'} spacing={6} h="80px">
-                                        <SocialButton label={'Instagram'} href={'https://www.instagram.com/tabernaculobc/'}>
-                                            <FaInstagram />
-                                        </SocialButton>
-                                        <SocialButton label={'Twitter'} href={'https://twitter.com/TabernaculoG12'}>
-                                            <FaTwitter />
-                                        </SocialButton>
-                                        <SocialButton label={'YouTube'} href={'https://www.youtube.com/@tabernaculodasnacoes6474'}>
-                                            <FaYoutube />
-                                        </SocialButton>
-                                    </Stack>
-                                </Flex>
-                            </>
+                            <Flex justify={{ base: 'center', md: 'start' }}
+                                direction="column"
+                                align="center"
+                            >
+                                <Stack direction={'row'} spacing={6} h="80px">
+                                    <SocialButton label={'Instagram'} href={'https://www.instagram.com/tabernaculobc/'}>
+                                        <FaInstagram />
+                                    </SocialButton>
+                                    {/* <SocialButton label={'Twitter'} href={'https://twitter.com/TabernaculoG12'}>
+                                        <FaTwitter />
+                                    </SocialButton> */}
+                                    <SocialButton label={'YouTube'} href={'https://www.youtube.com/@tabernaculodasnacoes6474'}>
+                                        <FaYoutube />
+                                    </SocialButton>
+                                </Stack>
+                            </Flex>
+                        </>
                         :
                         <>
                             <Heading as='h2' size='2xl'>
@@ -167,7 +179,7 @@ export default function WithSubnavigation() {
                 </Flex>
             </Box>
         </>
-        
+
     );
 }
 
@@ -257,7 +269,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 const MobileNav = () => {
     return (
         <Stack
-            bg={useColorModeValue('white', 'gray.800')}
+            bg={useColorModeValue('white', '#0C0C0C')}
             p={4}
             display={{ md: 'none' }}
             position="absolute"

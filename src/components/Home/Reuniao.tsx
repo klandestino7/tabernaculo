@@ -42,11 +42,12 @@ export default function Reuniao(props: ButtonProps) {
             >
                 <Box>
                     <Heading as='h2' size='xl' textAlign="center">
-                        Reuniões Dominicais
+                        Domingo às 20h
                     </Heading>
 
-                    <Heading as='h4' size='md' textAlign="center">
-                        Domingo às 20h - Hotel Geranium, Av. Brasil, 2970 - Balneário Camboriú
+    
+                    <Heading paddingTop={"10px"} as='h4' size='md' textAlign="center">
+                        Rua Nepal, 600 - Balneário Camboriú
                     </Heading>
                 </Box>
                 <Link

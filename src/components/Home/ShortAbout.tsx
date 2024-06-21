@@ -6,7 +6,7 @@ export default function ShortAbout(props: ButtonProps) {
         <Flex
             h="50vh"
             justifyContent="center"
-            bgColor={`black`}
+            bgColor={`#0C0C0C`}
             padding="30px 15px"
             color="white"
         >

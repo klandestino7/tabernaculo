@@ -12,7 +12,7 @@ export default function BanksAccount()
 {
     return (
         <Container 
-            background="black"
+            background="#0C0C0C"
             // backgroundSize="cover"
             // backgroundPosition="center"
             w="full"

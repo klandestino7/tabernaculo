@@ -14,7 +14,7 @@ import SocialButton from '../components/SocialButton';
 export default function Footer() {
     return (
         <Box
-            bg={useColorModeValue('gray.50', 'gray.900')}
+            bg={useColorModeValue("#0C0C0C", "#0C0C0C")}
             color={useColorModeValue('gray.700', 'gray.200')}
             w="full"
             display="flex"
@@ -34,9 +34,9 @@ export default function Footer() {
                     <SocialButton label={'Instagram'} href={'https://www.instagram.com/tabernaculobc/'}>
                         <FaInstagram />
                     </SocialButton>
-                    <SocialButton label={'Twitter'} href={'https://twitter.com/TabernaculoG12'}>
+                    {/* <SocialButton label={'Twitter'} href={'https://twitter.com/TabernaculoG12'}>
                         <FaTwitter />
-                    </SocialButton>
+                    </SocialButton> */}
                     <SocialButton label={'YouTube'} href={'https://www.youtube.com/@tabernaculodasnacoes6474'}>
                         <FaYoutube />
                     </SocialButton>
