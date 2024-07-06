@@ -42,7 +42,7 @@ export default function Reuniao(props: ButtonProps) {
             >
                 <Box>
                     <Heading as='h2' size='xl' textAlign="center">
-                        Domingo às 20h
+                        Domingo às 19:30h
                     </Heading>
 
     
